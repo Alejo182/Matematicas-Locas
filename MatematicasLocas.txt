@@ -1,0 +1,81 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package matematicaslocas;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author USUARIO
+ */
+public class MatematicasLocas {
+
+    /**
+     * @param args the command line arguments
+     */
+    @SuppressWarnings("fallthrough")
+    public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null, "¡Bienvenidos a matemáticas locas!");
+        JOptionPane.showMessageDialog(null, "Por favor ingresa tus datos:");
+        String nombre = JOptionPane.showInputDialog("Nombre");
+        int edad = Integer.parseInt(JOptionPane.showInputDialog("Edad"));;
+        registoUsuario niño = new registoUsuario(nombre, edad);
+        System.out.println(niño.toString());
+        JOptionPane.showMessageDialog(null, "Para comenzar vamos a ingresar 2 números");
+        double uno = Double.parseDouble(JOptionPane.showInputDialog("Escribe el primer número"));
+        double dos = Double.parseDouble(JOptionPane.showInputDialog("Escribe el segundo número"));
+        numeros num = new numeros(uno, dos);
+        System.out.println(num.toString());
+        for (int i = 0; i <= 5; i++) {
+
+            int menu = Integer.parseInt(JOptionPane.showInputDialog("MENU\nIngrese el número correspondiente para: \n 1. Rango números\n 2. Operaciones basicas \n 3. Números pares o impares"));
+            switch (menu) {
+                case 1:
+                    JOptionPane.showMessageDialog(null, "Conocer los números.\n Por ejemplo escibiste 10 y 20\n A continuación te mostraremos los números que se encuentren en ese rango:\n 11,12,13,14,15,16,17,18,19,20");
+                    rangoNumeros n = new rangoNumeros(uno, dos);
+                    n.mostrarNumeros(uno, dos);
+                    break;
+                case 2:
+                    operacionesBasicas y = new operacionesBasicas(uno, dos);
+                    int opcion = Integer.parseInt(JOptionPane.showInputDialog("MENU\nElige la opción que quieras realizar: \n 1. Sumar\n 2. Restar \n 3. Multiplicar\n 4. Dividir"));
+                    switch (opcion) {
+                        case 1:
+                            System.out.println(y.suma(uno, dos));
+                            break;
+                        case 2:
+                            System.out.println(y.resta(uno, dos));
+                            break;
+                        case 3:
+                            System.out.println(y.multiplicacion(uno, dos));
+                            break;
+                        case 4:
+                            System.out.println(y.division(uno, dos));
+                            break;
+
+                    }
+                    break;
+                case 3:
+                    numerosParesEimpares x = new numerosParesEimpares(uno, dos);
+                    int opc = Integer.parseInt(JOptionPane.showInputDialog("MENU\nElige la opción que quieras \n 1. Conocer números pares.\n 2. Conocer números impares"));
+                    switch (opc) {
+                        case 1:
+                            System.out.println("Los números pares son:");
+                            x.mostrarNumerosPares(uno, dos);
+                            break;
+                        case 2:
+                            System.out.println("Los números impares son:");
+                            x.mostrarNumerosIPares(uno, dos);
+                            break;
+
+                    }
+            }
+        }
+    }
+}
+
+    
+    
+}
